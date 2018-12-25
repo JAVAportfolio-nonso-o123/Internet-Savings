@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package internetsavings;
 import javax.swing.JOptionPane;
 /**
- *
+ *This program calculates the cost of internet usage based on package
+ *and recommends a cheaper available option
  * @author chinonsoobidike
  */
 public class InternetSavings {
@@ -19,24 +14,33 @@ public class InternetSavings {
       char servicePackage;
       char service;
       double hours, rateA, rateB,rateC, bill, extraHours, saveB, saveC;
-      rateA = 9.95;
+     
+        //initialize the cost of each package
+      rateA = 9.95;   
       rateB = 13.95;
       rateC = 19.95;
       JOptionPane.showMessageDialog(null, "We provide three service packages: "
               + "\nrate A: $9.95\nrate B: $13.95\nrate C: $19.95\n"
               +"Click ok to continue");
       
+        //ask the user for the package they use.
       input = JOptionPane.showInputDialog("Enter the letter of the package you use");
       input = input.toUpperCase();
       service = input.charAt(0);
+        
+        //ensure the package entered is A - C
       while(service > 'C'){
        input =  JOptionPane.showInputDialog("You entered a wrong letter.\nEnter a letter from A to C");
    input = input.toUpperCase();
    service = input.charAt(0);
    }
       servicePackage = input.charAt(0);
+        
+        //get the number of hours the user used their package
       input =  JOptionPane.showInputDialog("Enter the number of hours you used");
       hours = Double.parseDouble (input);
+        
+        //calculate the cost of usage based on the package used. Recommend a cheaper option
       switch(servicePackage)
       {
          case 'A':
